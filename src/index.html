@@ -1,24 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
-    <link rel="stylesheet" href="./css/styles.css" />
-  </head>
-  <body>
-    <load ="partials/header.html" />
 
-    <section>
-      <h1>Example page title</h1>
-      <!-- Path to images as from index.html file -->
-      <img src="./img/javascript.svg" alt="" />
-    </section>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vanilla App Template</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
 
-    <!-- Loads the specified .html file -->
-    <load ="partials/vite-promo.html" />
+<body>
 
-    <script type="module" src="./main.js"></script>
-  </body>
+  <div class="gallery-container">
+    <nav class="navbar bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand">Image Search</a>
+        <form class="d-flex search-form" id="search-form">
+          <input class="form-control me-2" name="searchQuery" type="text" placeholder="Search images..."
+            autocomplete="off">
+          <button class="btn btn-success" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+    <div class="gallery">
+      <!-- Image cards will be dynamically added here -->
+    </div>
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <button type="button" class="load-more btn btn-success" style="display: none;">Load more</button>
+    </div>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="./main.js"></script>
+</body>
+
 </html>
