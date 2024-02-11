@@ -23,14 +23,6 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-.container {
-  display: flex;
-  justify-content: center;
-}
-.container h1 {
-  margin-right: 25px;
-}
-
 .gallery {
   display: flex;
   flex-wrap: wrap;
