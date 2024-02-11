@@ -34,6 +34,7 @@ async function searchImages(event) {
   searchQuery = event.target.searchQuery.value.trim();
 
   if (!searchQuery) {
+    gallery.innerHTML = '';
     iziToast.error({
       title: 'Error',
       message: 'Please enter a search query',
@@ -59,6 +60,7 @@ async function searchImages(event) {
 
     if (data.hits.length === 0) {
       searchForm.reset();
+      gallery.innerHTML = '';
       Notiflix.Notify.info(
         'Sorry, there are no images matching your search query. Please try again.',
         { position: 'center-top' }
@@ -78,6 +80,7 @@ async function searchImages(event) {
     }
   } catch (error) {
     searchForm.reset();
+    gallery.innerHTML = '';
     iziToast.error({
       title: 'Error',
       message:
