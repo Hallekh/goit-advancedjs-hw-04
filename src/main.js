@@ -1,4 +1,3 @@
-// Import the necessary libraries
 import axios from 'axios';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
@@ -59,6 +58,7 @@ async function searchImages(event) {
     const { data } = response;
 
     if (data.hits.length === 0) {
+      searchForm.reset();
       Notiflix.Notify.info(
         'Sorry, there are no images matching your search query. Please try again.',
         { position: 'center-top' }
@@ -124,10 +124,13 @@ async function loadMoreImages() {
 }
 
 function renderImages(images) {
-  if (currentPage === 1) {
-    gallery.innerHTML = ''; // Clear gallery before rendering new images
-  }
   searchForm.reset();
+  if (currentPage === 1) {
+    gallery.innerHTML = '';
+  }
+
+  const fragment = document.createDocumentFragment();
+
   images.forEach(image => {
     const card = document.createElement('div');
     card.classList.add('photo-card');
@@ -164,6 +167,8 @@ function renderImages(images) {
     card.appendChild(img);
     card.appendChild(info);
 
-    gallery.appendChild(card);
+    fragment.appendChild(card);
   });
+
+  gallery.appendChild(fragment);
 }
